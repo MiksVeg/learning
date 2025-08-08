@@ -14,7 +14,7 @@ This guide describes how to configure a High Availability (HA) Kubernetes cluste
 
 ---
 
-## /etc/keepalived/chk_haproxy.sh
+## /etc/keepalived/chk_haproxy.sh Configuration
 
 ```bash
 #!/bin/bash
@@ -40,7 +40,7 @@ chmod +x /etc/keepalived/chk_haproxy.sh
 
 ---
 
-## /etc/keepalived/keepalived.conf (Master Node 1)
+## /etc/keepalived/keepalived.conf Configuration (Master Node 1)
 
 ```plaintext
 vrrp_script chk_haproxy {
@@ -73,7 +73,7 @@ vrrp_instance VI_1 {
 
 ---
 
-## /etc/keepalived/keepalived.conf (Master Node 2)
+## /etc/keepalived/keepalived.conf Configuration (Master Node 2)
 
 ```plaintext
 vrrp_script chk_haproxy {
@@ -211,7 +211,7 @@ sudo kubeadm init   \
 --pod-network-cidr=192.168.0.0/16
 ```
 
-## CNI installation
+## CNI installation using helm
 
 ```bash
 helm repo add cilium https://helm.cilium.io/
