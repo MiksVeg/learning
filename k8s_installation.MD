@@ -209,7 +209,11 @@ sudo kubeadm init   \
 --upload-certs   \
 --apiserver-advertise-address=192.168.56.106   \
 --pod-network-cidr=192.168.0.0/16
+```
 
+## CNI installation
+
+```bash
 helm repo add cilium https://helm.cilium.io/
 helm repo update
 helm install cilium cilium/cilium --version 1.17.6 --namespace kube-system
