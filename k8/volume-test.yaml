@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels: 
+    env: demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: volume-mount-nginx-pv
+      mountPath: "/data/test-volume/nginx-volume"
+  volumes:
+  - name: volume-mount-nginx-pv
+#    emptyDir: {}   #it is not for persistant data, once pod delete volume delete
+    persistentVolumeClaim:
+        claimName: testing-pvc
+  nodeName: master-1

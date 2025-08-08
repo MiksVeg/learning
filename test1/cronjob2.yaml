@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: excel-reader-daily
+spec:
+  schedule: "*/2 * * * *"  
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: excel-reader
+              image: miksveg/excel-reader:latest
+              volumeMounts:
+                - name: excel-volume
+                  mountPath: /app/abc.xlsx  
+                  subPath: "abc.xlsx"
+          volumes:
+            - name: excel-volume
+              configMap:
+                name: excel-volume
+          restartPolicy: Never
