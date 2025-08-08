@@ -204,7 +204,11 @@ EOF
 sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 
-sudo kubeadm init   --control-plane-endpoint=192.168.56.110:7443   --upload-certs   --apiserver-advertise-address=192.168.56.106   --pod-network-cidr=192.168.0.0/16
+sudo kubeadm init   \
+--control-plane-endpoint=192.168.56.110:7443   \
+--upload-certs   \
+--apiserver-advertise-address=192.168.56.106   \
+--pod-network-cidr=192.168.0.0/16
 
 helm repo add cilium https://helm.cilium.io/
 helm repo update
