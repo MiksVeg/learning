@@ -7,9 +7,10 @@ This guide describes how to configure a High Availability (HA) Kubernetes cluste
 ## /etc/hosts Configuration
 
 ```plaintext
-192.168.56.109    master-node-1
-192.168.56.110    master-node-2
-192.168.56.111    worker-node-1
+192.168.56.106    master-node-1
+192.168.56.107    master-node-2
+192.168.56.108    worker-node-1
+192.168.56.110    kube-vip
 ```
 
 ---
