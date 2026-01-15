@@ -147,7 +147,7 @@ sudo swapoff -a
 sudo sed -e '/swap/s/^/#/g' -i /etc/fstab
 free -m
 
-sudo sed -i 's/^SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
+sudo sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
 sestatus
 
 sudo systemctl disable --now firewalld
